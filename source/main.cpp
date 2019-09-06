@@ -1,7 +1,4 @@
-﻿/*so in gmod13 there was a cool little function called RunOnClient in the menu state, but I told kilburn about it after a while
-kinda miss it though
-as always tons of credit to willox*/
-
+﻿
 typedef unsigned char uchar;
 
 #include <interface.h>
