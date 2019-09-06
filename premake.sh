@@ -1,0 +1,1 @@
+./premake5 --os=linux --file=projects/premake5.lua --sourcesdk=../../sourcesdk-minimal gmake
