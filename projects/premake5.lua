@@ -10,6 +10,8 @@ CreateWorkspace({name = "hookproxy"})
 
 		IncludeLuaShared()
 		IncludeSDKCommon()
+		IncludeSDKTier0()
+		IncludeSDKTier1()
 
 		files {
 			"../source/menu/**.cpp",
@@ -39,6 +41,8 @@ CreateWorkspace({name = "hookproxy"})
 
 		IncludeLuaShared()
 		IncludeSDKCommon()
+		IncludeSDKTier0()
+		IncludeSDKTier1()
 
 		files {
 			"../source/client/**.cpp",

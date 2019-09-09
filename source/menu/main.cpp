@@ -32,7 +32,7 @@ int CallOnClient(lua_State *state)
 	CLIENT->PushNil();
 	CLIENT->PushString(data, strlen(data));
 	CLIENT->Call(3, 1);
-	CLIENT->Pop(2);
+	CLIENT->Pop(3);
 
 	return 0;
 }

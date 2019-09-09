@@ -4,6 +4,7 @@ typedef unsigned char uchar;
 #include <interface.h>
 #include <cdll_int.h>
 #include <GarrysMod/Lua/Interface.h>
+#include <string>
 
 #include "luaInterface.h"
 #include "conv.h"
@@ -32,7 +33,7 @@ int CallOnMenu(lua_State *state)
 	MENU->PushNil();
 	MENU->PushString(data, strlen(data));
 	MENU->Call(3, 1);
-	MENU->Pop(2);
+	MENU->Pop(3);
 
 	return 0;
 }
