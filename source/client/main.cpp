@@ -22,6 +22,9 @@ int CallOnMenu(lua_State *state)
 
 	Lua::Interface *MENU = luaShared->GetLuaInterface(2);
 
+	if (!MENU)
+		LUA->ThrowError("Can't get menu");
+
 	MENU->PushSpecial(Lua::SPECIAL_GLOB);
 	MENU->GetField(-1, "hook");
 	MENU->GetField(-1, "Call");
