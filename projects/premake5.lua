@@ -41,9 +41,9 @@ CreateWorkspace({name = "hookproxy"})
 		IncludeSDKCommon()
 
 		files {
-			"../source/client**.cpp",
-			"../source/client**.hpp",
-			"../source/client**.h",
+			"../source/client/**.cpp",
+			"../source/client/**.hpp",
+			"../source/client/**.h",
 			"../includes/**.h",
 			"../includes/**.cpp",
 		}
