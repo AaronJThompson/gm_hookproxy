@@ -18,21 +18,19 @@ Lua::Shared* luaShared;
 int CallOnClient(lua_State *state)
 {
 
-	Lua::Interface *CLIENT = luaShared->GetLuaInterface(0);
-	Lua::Interface *MENU = luaShared->GetLuaInterface(2);
-
 	const char *name = LUA->GetString(1);
+	const char *data = LUA->GetString(2);
 
-	ILuaObject *data = MENU->GetObject(2);
-
+	Lua::Interface *CLIENT = luaShared->GetLuaInterface(0);
 	if (!CLIENT)
 		LUA->ThrowError("Not in game");
+
 	CLIENT->PushSpecial(Lua::SPECIAL_GLOB);
 	CLIENT->GetField(-1, "hook");
 	CLIENT->GetField(-1, "Call");
 	CLIENT->PushString(name, strlen(name));
 	CLIENT->PushNil();
-	CLIENT->PushLuaObject(data);
+	CLIENT->PushString(data, strlen(data));
 	CLIENT->Call(3, 1);
 	CLIENT->Pop(3);
 
