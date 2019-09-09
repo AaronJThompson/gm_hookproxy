@@ -3,8 +3,8 @@
 typedef unsigned int uint;
 
 struct ILuaCallback;
-struct ILuaObject;
 struct IThreadedCall;
+struct ILuaObject;
 
 struct string;
 
@@ -35,7 +35,7 @@ namespace GarrysMod {
 			virtual void* Top(void) = 0;
 			virtual void* Push(int) = 0;
 			virtual void* Pop(int) = 0;
-			virtual void* GetTable(int) = 0;
+			virtual ILuaObject* GetTable(int) = 0;
 			virtual void* GetField(int, char  const*) = 0;
 			virtual void* SetField(int, char  const*) = 0;
 			virtual void* CreateTable(void) = 0;
@@ -84,7 +84,7 @@ namespace GarrysMod {
 			virtual void* Cycle(void) = 0;
 			virtual void* GetLuaState(void) = 0;
 			virtual void* Global(void) = 0;
-			virtual void* GetObject(int) = 0;
+			virtual ILuaObject* GetObject(int) = 0;
 			virtual void* DELETE_ME_5437(int) = 0;
 			virtual void* _DELETE_ME2466(int) = 0;
 			virtual void* PushLuaObject(ILuaObject *) = 0;

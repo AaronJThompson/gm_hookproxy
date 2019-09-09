@@ -4,6 +4,7 @@ typedef unsigned char uchar;
 #include <interface.h>
 #include <cdll_int.h>
 #include <GarrysMod/Lua/Interface.h>
+
 #include <string>
 
 #include "luaInterface.h"
@@ -18,20 +19,21 @@ Lua::Shared* luaShared;
 
 int CallOnMenu(lua_State *state)
 {
-	const char *name = LUA->GetString(1);
-	const char *data = LUA->GetString(2);
-
+	Lua::Interface *CLIENT = luaShared->GetLuaInterface(0);
 	Lua::Interface *MENU = luaShared->GetLuaInterface(2);
 
 	if (!MENU)
 		LUA->ThrowError("Can't get menu");
+
+	const char *name = LUA->GetString(1);
+	ILuaObject *data = CLIENT->GetObject(2);
 
 	MENU->PushSpecial(Lua::SPECIAL_GLOB);
 	MENU->GetField(-1, "hook");
 	MENU->GetField(-1, "Call");
 	MENU->PushString(name, strlen(name));
 	MENU->PushNil();
-	MENU->PushString(data, strlen(data));
+	MENU->PushLuaObject(data);
 	MENU->Call(3, 1);
 	MENU->Pop(3);
 
