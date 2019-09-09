@@ -4,7 +4,6 @@ typedef unsigned char uchar;
 #include <interface.h>
 #include <cdll_int.h>
 #include <GarrysMod/Lua/Interface.h>
-#include <string.h>
 
 #include "luaInterface.h"
 #include "conv.h"
